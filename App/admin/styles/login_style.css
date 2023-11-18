@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("../img/img-login/background.jpeg") ;
+    background: url("../img/img-login/beverages-3105631_1280.jpg") ;
     background-position: center;
 }
 .wrapper{
@@ -45,7 +45,7 @@ body{
     padding: 20px 45px 20px 20px;
 }
 .input ::placeholder{
-    color: #fff;
+    color: #000;
 }
 .inp i{
     position: absolute;
@@ -53,6 +53,13 @@ body{
     top: 50%;
     transform: translate(-50%);
     font-size: 20px;
+}
+.inp .toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 .submit{
     width: 100%;
