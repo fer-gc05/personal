@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -20,23 +20,24 @@
             </div>
             <div class="menu list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
-                        class="icon ion-md-apps lead mr-2"></i> Tablero</a>
+                        class='bx bx-grid-alt lead mr-2'></i> Tablero</a>
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
-                        class="icon ion-md-people lead mr-2"></i> Usuarios</a>
+                        class='bx bxs-cart-add lead mr-2'></i> Ventas</a>
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
-                        class="icon ion-md-stats lead mr-2"></i> Estadísticas</a>
+                        class='bx bxs-cart-download lead mr-2'></i> Compras</a>
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
-                        class="icon ion-md-calendar lead mr-2"></i> Eventos</a>
+                        class='bx bx-calendar lead mr-2'></i> Estadisticas</a>
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
-                        class="icon ion-md-person lead mr-2"></i> Perfil</a>
+                        class='bx bx-receipt lead mr-2'></i> Facturas</a>
                 <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"> <i
-                        class="icon ion-md-settings lead mr-2"></i> Configuración</a>
+                        class='bx bx-cog lead mr-2'></i> Configuración</a>
             </div>
         </div>
         <div id="page-content-wrapper" class="w-100 bg-light-blue">
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container">
-                    <button class="btn btn-primary text-primary" id="menu-toggle">Mostrar / esconder menu</button>
+                    <button class="btn btn-secundary text-primary" id="menu-toggle">Menú <i
+                            class='bx bxs-category bx-flip-horizontal lead mr-2'></i></button>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -55,8 +56,7 @@
                                     Diego
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Mi perfil</a>
-                                    <a class="dropdown-item" href="#">Suscripciones</a>
+                                    <a class="dropdown-item" href="#">perfil</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Cerrar sesión</a>
                                 </div>
