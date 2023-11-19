@@ -70,7 +70,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th colspan="co1"><small class="font-weight-bold">Producto<small></th>
+                            <th colspan="col"><small class="font-weight-bold">Producto<small></th>
                             <th scope="col"><small class="font-weight-bold">Cantidad<small></th>
                             <th scope="col"><small class="font-weight-bold">Precio<small></th>
                         </tr>

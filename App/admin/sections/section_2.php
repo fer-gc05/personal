@@ -12,15 +12,20 @@
     <button class="dropdown-item" type="button">Vende</button>
     <button class="dropdown-item" type="button">Producto</button>
     <button class="dropdown-item" type="button">Proveedor</button>
+    <button class="dropdown-item" type="button">Suministra</button>
   </div>
 </div>
 <section class="py-3">
-
-
-
 <div class="row mb-3">
             <div class="table-responsive" class= "asynchronous">
-                
+               <div id ="Cliente"></div>
+               <div id ="Compra"></div>
+               <div id ="Empleado"></div>
+               <div id ="Venta "></div>
+               <div id ="Vende"></div>
+               <div id ="Producto"></div>
+               <div id ="Proveedor"></div>
+               <div id ="Suministra"></div>
                 
             </div>
         </div>
