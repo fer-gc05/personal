@@ -11,21 +11,21 @@
 
 <body>
     <div class="container">
-        <div id="providers">
+        <div id="sales">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Codigo</th>
-                            <th>Telefono</th>
-                            <th>Nombre</th>
+                            <th>Id</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="shadow-sm" v-for="(proveedor,indice) of proveedores">
-                            <td>{{proveedor.Codigo_pro}}</td>
-                            <td>{{proveedor.Telefono}}</td>
-                            <td>{{proveedor.Mombre}}</td>                            
+                        <tr class="shadow-sm" v-for="(venta,indice) of ventas">
+                            <td>{{venta.Id}}</td>
+                            <td>{{venta.Fecha}}</td>
+                            <td>{{venta.Total}}</td>
                             <td>
                             </td>
                             <td>
@@ -50,22 +50,22 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/provider.php";
+    var url = "../config/bd/sales.php";
     var app = new Vue({
-        el: "#providers",
+        el: "#sales,
         data: {
-            proveedores:[],
-            Codigo_pro: "",
-            Telefono: "",
-            Nombre: "",
+            ventas: [],
+            Id: "",
+            Fecha: "",
+            Total: "",
         },
         methods: {
             mostrar: function() {
                 axios.post(url, {
                     opcion: 4
                 }).then(response => {
-                    this.proveedores = response.data;
-                    console.log(this.proveedores)
+                    this.ventas = response.data;
+                    console.log(this.ventas)
                 });
             }
 
