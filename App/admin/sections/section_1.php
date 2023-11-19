@@ -66,7 +66,6 @@
         </div>
 
         <div class="row mb-3">
-
             <div class="table-responsive">
                 <table class="table">
                     <thead>
