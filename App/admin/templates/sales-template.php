@@ -52,7 +52,7 @@
     <script>
     var url = "../config/bd/sales.php";
     var app = new Vue({
-        el: "#sales,
+        el: "#sales",
         data: {
             ventas: [],
             Id: "",
