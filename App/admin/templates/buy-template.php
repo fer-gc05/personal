@@ -10,23 +10,19 @@
 </head>
 <body>
     <div class="container">
-        <div id="clients">
+        <div id="buy">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Identificacion</th>
-                            <th>Nombre</th>
-                            <th>Contacto</th>
-                            <th>Direccion</th>
+                            <th>Codigo_p</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="shadow-sm" v-for="(cliente,indice) of clientes">
-                            <td>{{cliente.Id_c}}</td>
-                            <td>{{cliente.Nombre}}</td>
-                            <td>{{cliente.Contacto}}</td>
-                            <td>{{cliente.Direccion}}</td>
+                        <tr class="shadow-sm" v-for="(venta,indice) of ventas">
+                            <td>{{venta.Identificacion}}</td>
+                            <td>{{venta.Codigo_p}}</td>
                             <td>
 
                             </td>
@@ -52,23 +48,21 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/clients.php";
+    var url = "../config/bd/buy.php";
     var app = new Vue({
-        el: "#clients",
-        data: {
-            clientes: [],
-            Id_c: "",
-            Nombre: "",
-            Contacto: "",
-            Direccion: "",
+        el: "#buy",
+        data:{
+            ventas:[],
+            Identificacion: "",
+            Codigo_p: "",
         },
         methods: {
             mostrar: function() {
                 axios.post(url, {
                     opcion: 4
                 }).then(response => {
-                    this.clientes = response.data;
-                    console.log(this.clientes)
+                    this.ventas = response.data;
+                    console.log(this.ventas)
                 });
             }
 
