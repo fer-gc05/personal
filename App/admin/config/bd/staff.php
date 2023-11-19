@@ -5,7 +5,7 @@ $conexion = $objeto->Conectar();
 
 $_POST = json_decode(file_get_contents("php://input"), true);
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-$Codigo_e = (isset($_POST['Codigo_E'])) ? $_POST['Codigo_E'] : '';
+$Codigo_e = (isset($_POST['Codigo_e'])) ? $_POST['Codigo_e'] : ''; // Corregir aquí: cambiar 'Codigo_E' a 'Codigo_e'
 $Nombre = (isset($_POST['Nombre'])) ? $_POST['Nombre'] : '';
 $Id = (isset($_POST['Id'])) ? $_POST['Id'] : '';
 

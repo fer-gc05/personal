@@ -50,7 +50,7 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/sales.php";
+    var url = "../config/bd/staff.php";
     var app = new Vue({
         el: "#staff",
         data: {
