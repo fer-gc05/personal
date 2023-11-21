@@ -46,7 +46,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="../../libreries/jquery/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../libreries/jquery/jquery-3.3.1.min.js"></script>
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
