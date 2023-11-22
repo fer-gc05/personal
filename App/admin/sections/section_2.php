@@ -17,14 +17,14 @@
     <section class="py-3">
         <div class="row mb-3">
             <div class="table-responsive" id="asynchronous">
-                <div id="clients-template-tabla"><?php include ("../templates/clients-template.php");?></div>
-                <div id="buy-template-tabla"><?php include ("../templates/buy-template.php");?></div>
-                <div id="staff-template-tabla"><?php include ("../templates/staff-template.php");?></div>
-                <div id="sales-template-tabla"><?php include ("../templates/buy-sales.php");?></div>
-                <div id="sell-template-tabla"><?php include ("../templates/sell-template.php");?></div>
-                <div id="products-template-tabla"><?php include ("../templates/products-template.php");?></div>
-                <div id="provider-template-tabla"><?php include ("../templates/provider-template.php");?></div>
-                <div id="supply-template-tabla"><?php include ("../templates/supply-template.php");?></div>
+                <?php include ("../templates/clients-template.php");?>
+                <?php include ("../templates/buy-template.php");?>
+                <?php include ("../templates/products-template.php");?>
+                <?php include ("../templates/provider-template.php");?>
+                <?php include ("../templates/sales-template.php");?>
+                <?php include ("../templates/sell-template.php");?>
+                <?php include ("../templates/staff-template.php");?>
+                <?php include ("../templates/supply-template.php");?>
             </div>
         </div>
     </section>
