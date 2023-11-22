@@ -14,27 +14,6 @@
         $("#content-wrapper").toggleClass("toggled");
     });
 
-    $(document).ready(function(){
-        function mostrar(url, divId) {
-          $.ajax({
-            url: url,
-            method: "GET",
-            success: function (data) {
-              $("#" + divId).html(data);
-            },
-          });
-        }
-
-        function limpiar() {
-          $('#asynchronous').empty();
-        }
-        $('#B-cl').click(function() {
-            limpiar();
-            mostrar('clients-template.php', 'asynchronous');
-        })
-    });
-
-    
     </script>
 </body>
 
