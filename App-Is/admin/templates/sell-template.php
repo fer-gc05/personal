@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda M&M</title>
-    <link rel="stylesheet" href="../../styles/header_stely.css">
     <link rel="stylesheet" href="../../libreries/bootstrap/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="container">
-        <div id="buy">
+        <div id="sells">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Identificacion</th>
-                            <th>Codigo_p</th>
+                            <th>Codigo empleado</th>
+                            <th>Codigo Producto</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="shadow-sm" v-for="(venta,indice) of ventas">
-                            <td>{{venta.Identificacion}}</td>
+                            <td>{{venta.Codigo_E}}</td>
                             <td>{{venta.Codigo_p}}</td>
                             <td>
-
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -48,12 +48,12 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/buy.php";
+    var url = "../config/bd/sell.php";
     var app = new Vue({
-        el: "#buy",
-        data:{
+        el: "#sells",
+        data: {
             ventas:[],
-            Identificacion: "",
+            $Codigo_E: "",
             Codigo_p: "",
         },
         methods: {
@@ -64,8 +64,7 @@
                     this.ventas = response.data;
                     console.log(this.ventas)
                 });
-            },
-            
+            }
 
         },
         created: function() {

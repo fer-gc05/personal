@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda M&M</title>
-    <link rel="stylesheet" href="../../styles/header_stely.css">
     <link rel="stylesheet" href="../../libreries/bootstrap/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="container">
-        <div id="buy">
+        <div id="providers">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Identificacion</th>
-                            <th>Codigo_p</th>
+                            <th>Codigo</th>
+                            <th>Telefono</th>
+                            <th>Nombre</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="shadow-sm" v-for="(venta,indice) of ventas">
-                            <td>{{venta.Identificacion}}</td>
-                            <td>{{venta.Codigo_p}}</td>
+                        <tr class="shadow-sm" v-for="(proveedor,indice) of proveedores">
+                            <td>{{proveedor.Codigo_pro}}</td>
+                            <td>{{proveedor.Telefono}}</td>
+                            <td>{{proveedor.Mombre}}</td>                            
                             <td>
-
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -48,24 +50,24 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/buy.php";
+    var url = "../config/bd/provider.php";
     var app = new Vue({
-        el: "#buy",
-        data:{
-            ventas:[],
-            Identificacion: "",
-            Codigo_p: "",
+        el: "#providers",
+        data: {
+            proveedores:[],
+            Codigo_pro: "",
+            Telefono: "",
+            Nombre: "",
         },
         methods: {
             mostrar: function() {
                 axios.post(url, {
                     opcion: 4
                 }).then(response => {
-                    this.ventas = response.data;
-                    console.log(this.ventas)
+                    this.proveedores = response.data;
+                    console.log(this.proveedores)
                 });
-            },
-            
+            }
 
         },
         created: function() {

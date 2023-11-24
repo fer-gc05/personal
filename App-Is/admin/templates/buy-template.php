@@ -64,8 +64,7 @@
                     this.ventas = response.data;
                     console.log(this.ventas)
                 });
-            },
-            
+            }
 
         },
         created: function() {

@@ -12,20 +12,25 @@
 
 <body>
     <div class="container">
-        <div id="supply">
+        <div id="clients">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Codigo del Producto</th>
-                            <th>Codigo del Proveedor</th>
+                            <th>Identificacion</th>
+                            <th>Nombre</th>
+                            <th>Contacto</th>
+                            <th>Direccion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="shadow-sm" v-for="(suministro,indice) of suministros">
-                            <td>{{suministro.Codigo_p}}</td>
-                            <td>{{suministro.Codigo_pro}}</td>
+                        <tr class="shadow-sm" v-for="(cliente,indice) of clientes">
+                            <td>{{cliente.Id_c}}</td>
+                            <td>{{cliente.Nombre}}</td>
+                            <td>{{cliente.Contacto}}</td>
+                            <td>{{cliente.Direccion}}</td>
                             <td>
+
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
@@ -39,11 +44,13 @@
                     </tbody>
                 </table>
                 <div class="col">
-                    <button @click="btnInsertar" class="btn btn-success" title="Nuevo"><i class='bx bxs-save'></i></button>
+                    <button @click="btnInsertar" class="btn btn-success" title="Nuevo"><i
+                            class='bx bxs-save'></i></button>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -52,51 +59,58 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/supply.php";
+    var url = "../config/bd/clients.php";
     var app = new Vue({
-        el: "#supply",
+        el: "#clients",
         data: {
-            suministros: [],
-            Codigo_p: "",
-            Codigo_pro: "",
+            clientes: [],
+            Id_c: "",
+            Nombre: "",
+            Contacto: "",
+            Direccion: "",
         },
-
         methods: {
             mostrar: function() {
                 axios.post(url, {
                     opcion: 4
                 }).then(response => {
-                    this.suministros = response.data;
-                    console.log(this.suministros)
+                    this.clientes = response.data;
+                    console.log(this.clientes)
                 });
             },
 
             insertar: function() {
                 axios.post(url, {
                     opcion: 1,
-                    Codigo_p: this.Codigo_p,
-                    Codigo_pro: this.Codigo_pro
+                    Id_c: this.Id_c,
+                    Nombre: this.Nombre,
+                    Contacto: this.Contacto,
+                    Direccion: this.Direccion
                 }).then(response => {
                     this.mostrar();
                 });
-                this.Codigo_p = "",
-                    this.Codigo_pro = ""
+                this.Id_c = "",
+                    this.Nombre = "",
+                    this.Contacto = "",
+                    this.Direccion = ""
             },
 
-            editar: function(Codigo_p, Codigo_pro) {
+            editar: function(Id_c, Nombre, Contacto, Direccion) {
                 axios.post(url, {
                     opcion: 2,
-                    Codigo_p: Codigo_p,
-                    Codigo_pro: Codigo_pro
+                    Id_c: Id_c,
+                    Nombre: Nombre,
+                    Contacto: Contacto,
+                    Direccion: Direccion
                 }).then(response => {
                     this.mostrar();
                 });
             },
 
-            borrar: function(Codigo_p) {
+            borrar: function(Id_c) {
                 axios.post(url, {
                     opcion: 3,
-                    Codigo_p: Codigo_p
+                    Id_c: Id_c
                 }).then(response => {
                     this.mostrar();
                 });
@@ -107,7 +121,7 @@
                     value: formValues
                 } = await Swal.fire({
                     title: 'NUEVO',
-                    html: '<div class="row"><label class="col-sm-3 col-form-label">Codigo del Producto</label><div class="col-sm-7"><input id="producto" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Codigo de Proveedor</label><div class="col-sm-7"><input id="proveedor" type="text" class="form-control" /></div></div>',
+                    html: '<div class="row"><label class="col-sm-3 col-form-label">Id del cliente</label><div class="col-sm-7"><input id="id" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Nombre del cliente</label><div class="col-sm-7"><input id="nombre" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Contacto</label><div class="col-sm-7"><input id="contacto" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Direccion</label><div class="col-sm-7"><input id="direccion" type="text" class="form-control" /></div></div>',
                     focusConfirm: false,
                     showCancelButton: true,
                     confirmButtonText: 'Guardar',
@@ -115,12 +129,14 @@
                     cancelButtonColor: '#3085d6',
                     preConfirm: () => {
                         return [
-                            this.Codigo_p = document.getElementById('producto').value,
-                            this.Codigo_pro = document.getElementById('proveedor').value
+                            this.Id_c = document.getElementById('id').value,
+                            this.Nombre = document.getElementById('nombre').value,
+                            this.Contacto = document.getElementById('contacto').value,
+                            this.Direccion = document.getElementById('direccion').value
                         ]
                     }
                 })
-                if (this.Codigo_p == "" || this.Codigo_pro == "") {
+                if (this.Id_c == "" || this.Nombre == "" || this.Contacto == "" || this.Direccion == "") {
                     Swal.fire({
                         type: 'info',
                         title: 'Datos incompletos',
@@ -140,31 +156,30 @@
                 }
             },
 
-            btnEditar: async function(Codigo_p, Codigo_pro) {
+            btnEditar: async function(Id_c, Nombre, Contacto, Direccion) {
                 await Swal.fire({
                     title: 'Editar registro',
-                    html: '<div class="row"><label class="col-sm-3 col-form-label">Codigo del Producto</label><div class="col-sm-7"><input id="producto" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Codigo de Proveedor</label><div class="col-sm-7"><input id="proveedor" type="text" class="form-control" /></div></div>',
+                    html: '<div class="row"><label class="col-sm-3 col-form-label">Nombre del cliente</label><div class="col-sm-7"><input id="nombre" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Contacto</label><div class="col-sm-7"><input id="contacto" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Direccion</label><div class="col-sm-7"><input id="direccion" type="text" class="form-control" /></div></div>',
                     focusConfirm: false,
                     showCancelButton: true,
                 }).then((result) => {
                     if (result.value) {
-                        Codigo_p = document.getElementById('producto').value,
-                            Codigo_pro = document.getElementById('proveedor').value,
-
-                            this.editar(Codigo_p, Codigo_pro);
+                        Nombre = document.getElementById('nombre').value,
+                            Contacto = document.getElementById('contacto').value,
+                            Direccion = document.getElementById('direccion').value,
+                            this.editar(Id_c, Nombre, Contacto, Direccion);
                         Swal.fire(
                             '¡Actualizado!',
-                            'El registro ha sido acualizado.',
+                            'El registro ha sido actualizado.',
                             'success'
                         )
-
                     }
                 })
             },
 
-            btnEliminar: async function(Codigo_p) {
+            btnEliminar: async function(Id_c) {
                 Swal.fire({
-                    title: '¿Está seguro de borrar este registro', 
+                    title: '¿Está seguro de borrar este registro?', 
                         type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
@@ -172,7 +187,7 @@
                     confirmButtonText: 'Eliminar'
                 }).then((result) => {
                     if (result.value) {
-                        this.borrar(Codigo_p);
+                        this.borrar(Id_c);
                         Swal.fire(
                             '¡Eliminado!',
                             'El registro ha sido borrado.',
@@ -182,11 +197,9 @@
                 })
             }
         },
-
         created: function() {
             this.mostrar();
         },
-
         computed: {
 
         }

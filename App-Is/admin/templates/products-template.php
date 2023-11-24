@@ -10,19 +10,23 @@
 </head>
 <body>
     <div class="container">
-        <div id="buy">
+        <div id="products">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Identificacion</th>
-                            <th>Codigo_p</th>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Categoria</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="shadow-sm" v-for="(venta,indice) of ventas">
-                            <td>{{venta.Identificacion}}</td>
-                            <td>{{venta.Codigo_p}}</td>
+                        <tr class="shadow-sm" v-for="(producto,indice) of productos">
+                            <td>{{producto.Codigo_p}}</td>
+                            <td>{{producto.Nombre}}</td>
+                            <td>{{producto.Precio}}</td>
+                            <td>{{producto.Categoria}}</td>
                             <td>
 
                             </td>
@@ -48,24 +52,25 @@
     <script src="../../libreries/bootstrap/bootstrap.min.js"></script>
 
     <script>
-    var url = "../config/bd/buy.php";
+    var url = "../config/bd/products.php";
     var app = new Vue({
-        el: "#buy",
-        data:{
-            ventas:[],
-            Identificacion: "",
+        el: "#products",
+        data: {
+            productos: [],
             Codigo_p: "",
+            Nombre: "",
+            Precio: "",
+            Categoria: "",
         },
         methods: {
             mostrar: function() {
                 axios.post(url, {
                     opcion: 4
                 }).then(response => {
-                    this.ventas = response.data;
-                    console.log(this.ventas)
+                    this.productos = response.data;
+                    console.log(this.productos)
                 });
-            },
-            
+            }
 
         },
         created: function() {
