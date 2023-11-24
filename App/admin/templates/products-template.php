@@ -195,7 +195,7 @@
                     confirmButtonText: 'Eliminar'
                 }).then((result) => {
                     if (result.value) {
-                        this.eliminar(Codigo_p); // Cambiado de this.borrar a this.eliminar
+                        this.eliminar(Codigo_p); 
                         Swal.fire(
                             '¡Eliminado!',
                             'El registro ha sido borrado.',
