@@ -174,8 +174,7 @@
                         Nombre = document.getElementById('nombre').value,
                             Contacto = document.getElementById('contacto').value,
                             Direccion = document.getElementById('direccion').value,
-                            this.editar(Id_c, Nombre, Contacto,
-                            Direccion); // Asegúrate de incluir Id_c
+                            this.editar(Id_c, Nombre, Contacto, Direccion);
                         Swal.fire(
                             '¡Actualizado!',
                             'El registro ha sido actualizado.',
@@ -184,7 +183,6 @@
                     }
                 })
             },
-
 
             btnEliminar: async function(Id_c) {
                 Swal.fire({

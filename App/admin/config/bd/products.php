@@ -12,12 +12,12 @@ $Categoria = (isset($_POST['Categoria'])) ? $_POST['Categoria'] : '';
 
 switch($opcion){
     case 1:
-        $consulta = "INSERT INTO Productos (Codigo_p, Nombre, Precio, Categoría) VALUES('$Codigo_p', '$Nombre', '$Precio', '$Categoria') ";	
+        $consulta = "INSERT INTO Productos (Codigo_p, Nombre, Precio, Categoria) VALUES('$Codigo_p', '$Nombre', '$Precio', '$Categoria') ";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                
         break;
     case 2:
-        $consulta = "UPDATE Productos SET Nombre='$Nombre', Precio='$Precio', Categoría='$Categoria' WHERE Codigo_p='$Codigo_p'";		
+        $consulta = "UPDATE Productos SET Nombre='$Nombre', Precio='$Precio', Categoria='$Categoria' WHERE Codigo_p='$Codigo_p'";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                        
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
