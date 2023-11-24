@@ -70,7 +70,8 @@
                     this.productos = response.data;
                     console.log(this.productos)
                 });
-            }
+            },
+            
 
         },
         created: function() {

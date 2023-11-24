@@ -32,6 +32,7 @@ switch($opcion){
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
 }
+
 print json_encode($data, JSON_UNESCAPED_UNICODE);
 $conexion = NULL;
 ?>

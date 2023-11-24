@@ -34,10 +34,12 @@
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <button @click="btnEditar" class="btn btn-secondary" title="Editar"><i
-                                            class='bx bx-edit-alt'></i></button>
-                                    <button @click="btnEliminar" class="btn btn-danger" title="Eliminar"><i
-                                            class='bx bx-trash-alt'></i></button>
+                                    <button
+                                        @click="btnEditar(cliente.Id_c, cliente.Nombre, cliente.Contacto, cliente.Direccion)"
+                                        class="btn btn-secondary" title="Editar"><i class='bx bx-edit-alt'></i></button>
+
+                                    <button @click="btnEliminar(cliente.Id_c)" class="btn btn-danger"
+                                        title="Eliminar"><i class='bx bx-trash-alt'></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -142,7 +144,7 @@
                         title: 'Datos incompletos',
                     })
                 } else {
-                    this.mostrar();
+                    this.insertar();
                     const Toast = Swal.mixin({
                         toast: true,
                         position: 'top-end',
@@ -159,7 +161,12 @@
             btnEditar: async function(Id_c, Nombre, Contacto, Direccion) {
                 await Swal.fire({
                     title: 'Editar registro',
-                    html: '<div class="row"><label class="col-sm-3 col-form-label">Nombre del cliente</label><div class="col-sm-7"><input id="nombre" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Contacto</label><div class="col-sm-7"><input id="contacto" type="text" class="form-control" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Direccion</label><div class="col-sm-7"><input id="direccion" type="text" class="form-control" /></div></div>',
+                    html: '<div class="row"><label class="col-sm-3 col-form-label">Nombre del cliente</label><div class="col-sm-7"><input id="nombre" type="text" class="form-control" value="' +
+                        Nombre +
+                        '" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Contacto</label><div class="col-sm-7"><input id="contacto" type="text" class="form-control" value="' +
+                        Contacto +
+                        '" /></div></div><div class="row"><label class="col-sm-3 col-form-label">Direccion</label><div class="col-sm-7"><input id="direccion" type="text" class="form-control" value="' +
+                        Direccion + '" /></div></div>',
                     focusConfirm: false,
                     showCancelButton: true,
                 }).then((result) => {
@@ -167,7 +174,8 @@
                         Nombre = document.getElementById('nombre').value,
                             Contacto = document.getElementById('contacto').value,
                             Direccion = document.getElementById('direccion').value,
-                            this.editar(Id_c, Nombre, Contacto, Direccion);
+                            this.editar(Id_c, Nombre, Contacto,
+                            Direccion); // Asegúrate de incluir Id_c
                         Swal.fire(
                             '¡Actualizado!',
                             'El registro ha sido actualizado.',
@@ -177,10 +185,11 @@
                 })
             },
 
+
             btnEliminar: async function(Id_c) {
                 Swal.fire({
-                    title: '¿Está seguro de borrar este registro?', 
-                        type: 'warning',
+                    title: '¿Está seguro de borrar este registro?',
+                    type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
