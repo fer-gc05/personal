@@ -1,28 +1,31 @@
-<?php 
+<?php
+require_once 'conexion.php';
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
-if(!empty($_POST['btningresar'])){
-  if(!empty($_POST['usuario']) and!empty($_POST['password'])){
 
-    $usuario= $_POST['usuario'];
-    $password= $_POST['password'];
+$conexion = Conexion::Conectar(); 
 
-    $consulta =$conexion->query("SELECT * FROM Personal WHERE Usuario= '$usuario' AND password ='$password'  ");
+if (!empty($_POST['btningresar'])) {
+    if (!empty($_POST['usuario']) && !empty($_POST['password'])) {
+        $usuario = $_POST['usuario'];
+        $password = $_POST['password'];
 
-    if ($datos =$consulta->fetch_object()) {
+        $consulta = $conexion->query("SELECT * FROM Personal WHERE Usuario= '$usuario' AND password ='$password'");
 
-        $_SESSION['Id'] = $datos->Id;
-        $_SESSION['Nombre'] = $datos->Nombre;
-        $_SESSION['Rol'] = $datos->Rol;
+        if ($datos = $consulta->fetch(PDO::FETCH_OBJ)) {
+            $_SESSION['Id'] = $datos->Id;
+            $_SESSION['Nombre'] = $datos->Nombre;
+            $_SESSION['Rol'] = $datos->Rol;
 
-        header('location:/sections/section_1.php');
-
+            header('location:sections/section_1.php');
+            exit();
+        } else {
+            echo "<div class='alert alert-danger'>Datos incorrectos</div>";
+        }
     } else {
-       echo "<div class= 'alert alert-danger'>Datos incorrectos</div>";
+        echo "<div class='alert alert-danger'>Campos vacíos</div>";
     }
-    
-
-  }else{
-    echo"<div class= 'alert alert-danger'>Campos vacios</div>";
-  }
 }
 ?>

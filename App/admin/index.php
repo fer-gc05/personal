@@ -1,6 +1,6 @@
 <?php 
 include 'config/login.php';
-include 'config/conexion.php';
+require_once 'config/conexion.php';
 ?>
 
 <!DOCTYPE html>

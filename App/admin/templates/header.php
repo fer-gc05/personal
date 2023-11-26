@@ -53,12 +53,11 @@ session_start();
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <?php
-                                    echo $_SESSION['nombre'];
-                                    ?>
+                                    <?php echo $_SESSION['Nombre']; ?>
                                 </a>
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                                <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
                                 </div>
                             </li>
                         </ul>
