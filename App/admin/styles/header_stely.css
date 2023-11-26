@@ -56,7 +56,12 @@
   #sidebar-container .logo{
     padding: 0.875rem 1.25rem;
   }
-  
+
+  #asynchronous {
+    max-height: 300px; 
+    overflow-y: auto; 
+  }
+
   #sidebar-container .menu {
     width: 18rem;
   }
