@@ -1,4 +1,4 @@
-<?php include ("../templates/header.php")?>
+<?php include ("../templates/header.php");?>
 
 <div id="content" class="container-fluid p-5">
     <section class="py-3">

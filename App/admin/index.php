@@ -1,3 +1,8 @@
+<?php 
+include 'config/login.php';
+include 'config/conexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,20 +16,22 @@
 
 <body>
     <div class="wrapper">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form">
+        <form method="post" action="" class="form">
             <h1 class="title">INICIO</h1>
+           
             <div class="inp">
                 <input type="text" name="usuario" id="In-usuario" class="input" placeholder="Ingrese su usuario">
                 <i class='bx bx-user'></i>
             </div>
             <div class="inp">
-                <input type="password" name="password" id="In-password" class="input" placeholder="Ingrese su contraseña">
+                <input type="password" name="password" id="In-password" class="input"
+                    placeholder="Ingrese su contraseña">
                 <i class='bx bx-lock'></i>
                 <span class="toggle-password" onclick="togglePassword()">
                     <i class='bx bx-hide'></i>
                 </span>
             </div>
-            <button class="submit">Ingresar</button>
+            <input name="btningresar" class="submit" type="submit" value="Ingresar">
         </form>
     </div>
 
