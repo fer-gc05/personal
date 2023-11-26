@@ -17,33 +17,22 @@
     <section class="py-3">
         <div class="row mb-3">
             <div class="table-responsive" id="asynchronous">
-                <div id="clientsTable" style="display: none;"><?php include "../templates/clients-template.php"; ?></div>
-                <div id="categoriesTable" style="display: none;"><?php include "../templates/category-template.php"; ?></div>
-                <div id="productsTable" style="display: none;"><?php include "../templates/products-template.php"; ?></div>
+                <div id="clientsTable" style="display: none;"><?php include "../templates/clients-template.php"; ?>
+                </div>
+                <div id="categoriesTable" style="display: none;"><?php include "../templates/category-template.php"; ?>
+                </div>
+                <div id="productsTable" style="display: none;"><?php include "../templates/products-template.php"; ?>
+                </div>
                 <div id="staffTable" style="display: none;"><?php include "../templates/staff-template.php"; ?></div>
-                <div id="invoiceDetailTable" style="display: none;"><?php include "../templates/invoice_detail-template.php"; ?></div>
-                <div id="suppliersTable" style="display: none;"><?php include "../templates/suppliers-template.php"; ?></div>
+                <div id="invoiceDetailTable" style="display: none;">
+                    <?php include "../templates/invoice_detail-template.php"; ?></div>
+                <div id="suppliersTable" style="display: none;"><?php include "../templates/suppliers-template.php"; ?>
+                </div>
             </div>
         </div>
     </section>
 </div>
 
-<script>
-function showTable(tableName) {
-    // Oculta todas las tablas
-    hideAllTables();
 
-    // Muestra la tabla correspondiente al nombre
-    document.getElementById(tableName + 'Table').style.display = 'block';
-}
-
-function hideAllTables() {
-    // Oculta todas las tablas
-    const tables = document.querySelectorAll('[id$="Table"]');
-    tables.forEach(table => {
-        table.style.display = 'none';
-    });
-}
-</script>
 
 <?php include "../templates/footer.php"; ?>

@@ -14,7 +14,22 @@ $("#menu-toggle").click(function(e) {
     $("#content-wrapper").toggleClass("toggled");
 });
 
+</script>
 
+<script>
+function showTable(tableName) {
+
+    hideAllTables();
+    document.getElementById(tableName + 'Table').style.display = 'block';
+}
+
+function hideAllTables() {
+
+    const tables = document.querySelectorAll('[id$="Table"]');
+    tables.forEach(table => {
+        table.style.display = 'none';
+    });
+}
 </script>
 </body>
 
