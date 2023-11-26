@@ -11,10 +11,10 @@ if (empty($_SESSION['Id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda M&M</title>
-    <link rel="stylesheet" href="../styles/header_stely.css">
+    <link  href="../styles/header_stely.css" rel="stylesheet">
     <link href="../../libreries/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="../../libreries/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
