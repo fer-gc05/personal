@@ -1,4 +1,4 @@
-<?php include "../templates/header.php";?>
+<?php include "../templates/header.php"; ?>
 
 <div id="content" class="container-fluid p-5">
     <div class="btn-group dropright">
@@ -6,26 +6,44 @@
             Tablas
         </button>
         <div class="dropdown-menu">
-            <button class="dropdown-item" type="button">Clientes</button>
-            <button class="dropdown-item" type="button">Categorias</button>
-            <button class="dropdown-item" type="button">Productos</button>
-            <button class="dropdown-item" type="button">Empleados</button>
-            <button class="dropdown-item" type="button">Detalle factura</button>
-            <button class="dropdown-item" type="button">Provedores</button>
-            </div>
+            <button class="dropdown-item" type="button" onclick="showTable('clients')">Clientes</button>
+            <button class="dropdown-item" type="button" onclick="showTable('categories')">Categorías</button>
+            <button class="dropdown-item" type="button" onclick="showTable('products')">Productos</button>
+            <button class="dropdown-item" type="button" onclick="showTable('staff')">Empleados</button>
+            <button class="dropdown-item" type="button" onclick="showTable('invoice_detail')">Detalle factura</button>
+            <button class="dropdown-item" type="button" onclick="showTable('suppliers')">Proveedores</button>
+        </div>
     </div>
     <section class="py-3">
         <div class="row mb-3">
             <div class="table-responsive" id="asynchronous">
-            <?php include "../templates/clients-template.php"; ?>
-            <?php include "../templates/category-template.php"; ?>
-            <?php include "../templates/products-template.php"; ?>
-            <?php include "../templates/staff-template.php"; ?>
-            <?php include "../templates/invoice_detail-template.php"; ?>
-            <?php include "../templates/clients-template.php"; ?>
+                <div id="clientsTable" style="display: none;"><?php include "../templates/clients-template.php"; ?></div>
+                <div id="categoriesTable" style="display: none;"><?php include "../templates/category-template.php"; ?></div>
+                <div id="productsTable" style="display: none;"><?php include "../templates/products-template.php"; ?></div>
+                <div id="staffTable" style="display: none;"><?php include "../templates/staff-template.php"; ?></div>
+                <div id="invoiceDetailTable" style="display: none;"><?php include "../templates/invoice_detail-template.php"; ?></div>
+                <div id="suppliersTable" style="display: none;"><?php include "../templates/suppliers-template.php"; ?></div>
             </div>
         </div>
     </section>
 </div>
+
+<script>
+function showTable(tableName) {
+    // Oculta todas las tablas
+    hideAllTables();
+
+    // Muestra la tabla correspondiente al nombre
+    document.getElementById(tableName + 'Table').style.display = 'block';
+}
+
+function hideAllTables() {
+    // Oculta todas las tablas
+    const tables = document.querySelectorAll('[id$="Table"]');
+    tables.forEach(table => {
+        table.style.display = 'none';
+    });
+}
+</script>
 
 <?php include "../templates/footer.php"; ?>
