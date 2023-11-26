@@ -19,7 +19,6 @@
                         <tr>
                             <th>Cedula</th>
                             <th>Nombre</th>
-                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,19 +119,18 @@
                     confirmButtonColor: '#1cc88a',
                     cancelButtonColor: '#3085d6',
                     preConfirm: () => {
-                        return [
-                            this.Cedula = document.getElementById('cedula').value,
-                            this.Nombre = document.getElementById('nombre').value
-                        ];
+                        const cedula = document.getElementById('cedula').value;
+                        const nombre = document.getElementById('nombre').value;
+
+                        if (!cedula || !nombre) {
+                            Swal.showValidationMessage('Por favor, completa todos los campos.');
+                        }
+
+                        return [this.Cedula = cedula, this.Nombre = nombre];
                     }
                 });
 
-                if (this.Cedula === "" || this.Nombre === "") {
-                    Swal.fire({
-                        type: 'info',
-                        title: 'Datos incompletos',
-                    });
-                } else {
+                if (this.Cedula && this.Nombre) {
                     this.insertar();
                     const Toast = Swal.mixin({
                         toast: true,
@@ -161,7 +159,7 @@
                     if (result.value) {
                         Cedula = document.getElementById('cedula').value,
                             Nombre = document.getElementById('nombre').value,
-                            
+
                             this.editar(Id, Cedula, Nombre);
                         Swal.fire(
                             '¡Actualizado!',
