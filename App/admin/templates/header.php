@@ -57,7 +57,7 @@ session_start();
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+                                <a class="dropdown-item" href="../config/logout.php">Cerrar sesión</a>
                                 </div>
                             </li>
                         </ul>
