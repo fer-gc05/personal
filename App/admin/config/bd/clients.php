@@ -5,25 +5,24 @@ $conexion = $objeto->Conectar();
 
 $_POST = json_decode(file_get_contents("php://input"), true);
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-$Id_c = (isset($_POST['Id_c'])) ? $_POST['Id_c'] : '';
+$Id = (isset($_POST['Id'])) ? $_POST['Id'] : '';
+$Cedula = (isset($_POST['Cedula'])) ? $_POST['Cedula']:'';
 $Nombre = (isset($_POST['Nombre'])) ? $_POST['Nombre'] : '';
-$Contacto = (isset($_POST['Contacto'])) ? $_POST['Contacto'] : '';
-$Direccion = (isset($_POST['Direccion'])) ? $_POST['Direccion'] : '';
 
 switch($opcion){
     case 1:
-        $consulta = "INSERT INTO Clientes ( Id_c, Nombre, Contacto, Direccion) VALUES('$Id_c', '$Nombre', '$Contacto', '$Direccion') ";	
+        $consulta = "INSERT INTO Clientes ( Id, Cedula, Nombre) VALUES('$Id', '$Cedula', $Nombre') ";	
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                
         break;
     case 2:
-        $consulta = "UPDATE Clientes SET Nombre='$Nombre', Contacto='$Contacto', Direccion= '$Direccion' WHERE Id_c='$Id_c'";		
+        $consulta = "UPDATE Clientes SET Cedula='$Cedula, Nombre='$Nombre'' WHERE Id='$Id'";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                        
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;        
     case 3:
-        $consulta = "DELETE FROM Clientes WHERE Id_c='$Id_c' ";		
+        $consulta = "DELETE FROM Clientes WHERE Id='$Id' ";		
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();                           
         break;         

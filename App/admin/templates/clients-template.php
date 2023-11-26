@@ -25,10 +25,9 @@
                     </thead>
                     <tbody>
                         <tr class="shadow-sm" v-for="(cliente,indice) of clientes">
-                            <td>{{cliente.Id_c}}</td>
+                            <td>{{cliente.Id}}</td>
+                            <td>{{cliente.Cedula}}</td>
                             <td>{{cliente.Nombre}}</td>
-                            <td>{{cliente.Contacto}}</td>
-                            <td>{{cliente.Direccion}}</td>
                             <td>
                             </td>
                             <td>
@@ -65,10 +64,9 @@
             el: "#clients",
             data: {
                 clientes: [],
-                Id_c: "",
+                Id: "",
+                Cedula: "",
                 Nombre: "",
-                Contacto: "",
-                Direccion: "",
             },
             methods: {
                 mostrar: function () {
