@@ -1,4 +1,4 @@
-<?php include ("../templates/header.php");?>
+<?php include "../templates/header.php";?>
 
 <div id="content" class="container-fluid p-5">
     <div class="btn-group dropright">
@@ -26,4 +26,4 @@
     </section>
 </div>
 
-<?php include ("../templates/footer.php"); ?>
+<?php include "../templates/footer.php"; ?>
