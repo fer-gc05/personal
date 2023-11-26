@@ -11,14 +11,14 @@
 
 <body>
     <div class="wrapper">
-        <form action="" class="form">
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form">
             <h1 class="title">INICIO</h1>
             <div class="inp">
-                <input type="text" name="" id="" class="input" placeholder="Ingrese su usuario">
+                <input type="text" name="usuario" id="In-usuario" class="input" placeholder="Ingrese su usuario">
                 <i class='bx bx-user'></i>
             </div>
             <div class="inp">
-                <input type="password" name="password" id="password" class="input" placeholder="Ingrese su contraseña">
+                <input type="password" name="password" id="In-password" class="input" placeholder="Ingrese su contraseña">
                 <i class='bx bx-lock'></i>
                 <span class="toggle-password" onclick="togglePassword()">
                     <i class='bx bx-hide'></i>
@@ -29,20 +29,20 @@
     </div>
 
     <script>
-        function togglePassword() {
-            var passwordInput = document.getElementById("password");
-            var toggleIcon = document.querySelector(".toggle-password i");
+    function togglePassword() {
+        var passwordInput = document.getElementById("In-password");
+        var toggleIcon = document.querySelector(".toggle-password i");
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.classList.remove("bx-hide");
-                toggleIcon.classList.add("bx-show");
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.classList.remove("bx-show");
-                toggleIcon.classList.add("bx-hide");
-            }
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("bx-hide");
+            toggleIcon.classList.add("bx-show");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("bx-show");
+            toggleIcon.classList.add("bx-hide");
         }
+    }
     </script>
 </body>
 
