@@ -19,7 +19,7 @@
     <section class="py-3">
         <div class="row mb-3">
             <div class="table-responsive" id="asynchronous">
-                
+                <?php include('../templates/clients-template.php')?>
 
             </div>
         </div>
