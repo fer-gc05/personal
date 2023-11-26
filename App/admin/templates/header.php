@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (empty($_SESSION['Id'])) {
+    header('location: ../index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
