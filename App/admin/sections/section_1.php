@@ -1,4 +1,4 @@
-<?php include ("../templates/header.php");?>
+<?php include ("../templates/header.php")?>
 
 <div id="content" class="container-fluid p-5">
     <section class="py-3">
@@ -66,25 +66,25 @@
         </div>
 
         <div class="row mb-3">
-        <div class="btn-group dropright">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-            Tablas
-        </button>
-        <div class="dropdown-menu">
-            <button class="dropdown-item" type="button">Clientes</button>
-            <button class="dropdown-item" type="button">Compras</button>
-            <button class="dropdown-item" type="button">Empleados</button>
-            <button class="dropdown-item" type="button">Productos</button>
-            <button class="dropdown-item" type="button">Proveedores</button>
-            <button class="dropdown-item" type="button">Suministra</button>
-            <button class="dropdown-item" type="button">Vende</button>
-            <button class="dropdown-item" type="button">Ventas</button>
-        </div>
-    </div>
-    
-    <div class="table-responsive" id="asynchronous">
-                <?php include('../templates/clients-template.php')?>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="col"><small class="font-weight-bold">Producto<small></th>
+                            <th scope="col"><small class="font-weight-bold">Cantidad<small></th>
+                            <th scope="col"><small class="font-weight-bold">Precio<small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="shadow-sm">
+                            <td><span>Producto 1</span></td>
+                            <td><span>100</span>
+                            </td>
+                            <td class="align-middle"><span class="badge badge-info text-black">$100.000</span></td>
+                        </tr>
 
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
